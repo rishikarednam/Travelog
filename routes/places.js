@@ -1,9 +1,11 @@
 var express = require("express");
 var router = express.Router(); //a new instance of express router and adding routes to this router. 
 var Place = require("../models/place");
+var middleware = require("../middleware");
+
 
 router.get("/", function(req, res) {
-    // Get all campgrounds from DB
+    
     Place.find({}, function(err, allplaces){
         if (err) {
             console.log(err);
@@ -14,9 +16,9 @@ router.get("/", function(req, res) {
 });
 
 
-//CREATE - add new campgrounds to database
-router.post("/", function (req, res){
-    // get data from form and add to campgrounds array
+
+router.post("/", middleware.isLoggedIn, function (req, res){
+    
     var name = req.body.name;
     var image = req.body.image;
     var description = req.body.description;
@@ -24,29 +26,54 @@ router.post("/", function (req, res){
     var bucket_list = req.body.bucket_list;
     var date = req.body.date;
     var newPlace = {name: name, image: image, description: description, visited: visited, bucket_list: bucket_list,date: date };
-   //create a new campground and save to db
+   
    Place.create(newPlace, function(err, newlyCreated){
       if (err) {
           console.log(err);
       } else {
-           // redirect back to campgrounds page
+           
           res.redirect("/places"); //
       }
    });
 });
 
 
-//NEW - show form to create new campground 
-router.get("/new", function(req, res){
+
+router.get("/new", middleware.isLoggedIn, function(req, res){
    res.render("places/new");
 });
 
+router.get("/:id/edit", middleware.checkPlaceOwnership, function(req, res){
+    Place.findById(req.params.id, function(err, foundPlace){
+        res.render("places/edit", {place: foundPlace});
+    });
+});
 
-//SHOW - shows more info about campground selected - to be declared after NEW to not overwrite
+router.put("/:id",middleware.checkPlaceOwnership, function(req, res){
+    
+    Place.findByIdAndUpdate(req.params.id, req.body.place, function(err, updatedPlace){
+       if(err){
+           res.redirect("/places");
+       } else {
+           //redirect somewhere(show page)
+           res.redirect("/places/" + req.params.id);
+       }
+    });
+});
+
+router.delete("/:id",middleware.checkPlaceOwnership, function(req, res){
+   Place.findByIdAndRemove(req.params.id, function(err){
+      if(err){
+          res.redirect("/places");
+      } else {
+          res.redirect("/places");
+      }
+   });
+});
 
 
 
-//middleware to check about logged in or not
+
 function isLoggedIn(req, res, next) {
     if(req.isAuthenticated()){
         return next();
@@ -54,4 +81,4 @@ function isLoggedIn(req, res, next) {
     res.redirect("/login");
 }
 
-module.exports = router; //returning/exporting r
+module.exports = router; 

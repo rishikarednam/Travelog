@@ -1,9 +1,82 @@
-<% include ("partials/header") %>
+<%- include ('partials/header') %>
 
-<h1>Landing Page</h1>
 
-<p>Welcome to TRAVELOG</p>
+        <header class="jumbotron HeaderImg">
+            <div class="container">
+                <img src="home-illustration.svg" />
+            </div>
+        </header>
 
-<a href="/places">View all Places</a>
+    <section class="container-fluid px-0">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
 
-<% include ("partials/footer") %>
+
+             <div class="container">
+   <div class="row">
+            
+            <div style="width: 30%; margin: 40px; margin-left:100px;">
+                <form action="/login" method="POST">
+                <p class="reg" >Login</p>
+                <br/>
+                    <div class="form-group">
+                         <input class="form-control" type="text" name="username" placeholder="Username">
+                    </div>
+                    <div class="form-group">
+                         <input class="form-control" type="password" name="password" placeholder="Password">
+                    </div>
+                   
+
+                    <div class="form-group">
+                          <button class="btn btn-lg btn-primary btn-block bcolor"><div class="cbutton">LOGIN</div></button>
+                    </div>
+                </form>
+  
+          
+        </div>
+    </div>
+</div>
+
+
+              
+            </div>
+
+
+            <div class="col-lg-6">
+                <div  class="container">
+   <div class="row">
+           
+            <div style="width: 30%; margin: 40px ;">
+                <form action="/register" method="POST">
+                <p class="reg">If you don’t already have an account register to create your account.</p>
+                <br/>
+                <div class="form-group">
+                         <input class="form-control" type="text" name="yourname" placeholder="Your Name">
+                    </div>
+                    <div class="form-group">
+                         <input class="form-control" type="text" name="email" placeholder="Email ID">
+                    </div>
+                    <div class="form-group">
+                         <input class="form-control" type="text" name="Phone number" placeholder="Phone No">
+                    </div>
+                    <div class="form-group">
+                         <input class="form-control" type="text" name="username" placeholder="Username">
+                    </div>
+                    <div class="form-group">
+                         <input class="form-control" type="password" name="password" placeholder="Password">
+                    </div>
+                   
+
+                    <div class="form-group">
+                          <button class="btn btn-lg btn-primary btn-block bcolor"><div class="cbutton">REGISTER</div></button>
+                    </div>
+                </form>
+  
+          
+        </div>
+    </div>
+</div>
+            </div>
+        </div>
+    </section>        
+        

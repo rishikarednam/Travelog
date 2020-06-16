@@ -1,6 +1,6 @@
 var mongoose    = require("mongoose");
 var Place  = require("./models/place");
-var Comment     = require("./models/comment")
+
 
 
 var data =[

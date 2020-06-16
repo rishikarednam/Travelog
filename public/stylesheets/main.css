@@ -2,12 +2,26 @@
     width: 100%;
 }
 
+.body {
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
 .thumbnail {
     padding: 0px;
 }
 
+.reg{
+    font-weight: Extra-light;
+    font-size:15px;
+    text-align: inherit;
+}
 .thumbnail .caption-full {
     padding: 9px;
+}
+
+.country{
+    font-weight: Bold;
+    font-size:700;
 }
 
 .HeaderImg{
@@ -16,17 +30,31 @@
 
 } 
 
-.font{
-	font-family: 'IBM Plex Sans', sans-serif;
+
+
+.bcolor{
+    background-color: #0E1331
+
+}
+
+.cbutton{
+     padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 15px;
+  font-weight: Bold;
+    font-size:700;
+
+
 }
 
 .navbar{
-	background-color: #0E1331
-   
-
+margin-bottom: 0 !important;
+border: 0 !important;
+background-color: #0E1331
 }
 
 #mainNavbar {
+	background-color: #0E1331
     font-size: 1.5rem;
     font-weight: 100;    
 }

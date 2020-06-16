@@ -13,7 +13,7 @@ router.get("/", function(req, res) {
 
 
 router.get("/register", function(req, res){
-    res.render("register");
+    res.render("landing");
 });
 
 
@@ -23,7 +23,7 @@ router.post("/register", function(req, res){
     User.register(newUser, req.body.password, function(err, user){
         if (err){
             console.log(err);
-            return res.render("register");
+            return res.render("landing");
             }
             passport.authenticate("local")(req, res, function(){
                 res.redirect("/places");
@@ -35,7 +35,7 @@ router.post("/register", function(req, res){
 
 
 router.get("/login", function(req, res){
-    res.render("login");
+    res.render("landing");
 });
 
 
@@ -51,7 +51,7 @@ router.post("/login", passport.authenticate("local",
 
 router.get("/logout", function(req, res){
     req.logout(); 
-    res.redirect("/places");
+    res.redirect("/");
 });
 
 
