@@ -1,0 +1,45 @@
+.thumbnail img {
+    width: 100%;
+}
+
+.thumbnail {
+    padding: 0px;
+}
+
+.thumbnail .caption-full {
+    padding: 9px;
+}
+
+.HeaderImg{
+    min-height: 250px;
+    background-color: #0E1331
+
+} 
+
+.font{
+	font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.navbar{
+	background-color: #0E1331
+   
+
+}
+
+#mainNavbar {
+    font-size: 1.5rem;
+    font-weight: 100;    
+}
+
+#mainNavbar .nav-link {
+    color: white;
+}
+
+#mainNavbar .nav-link:hover {
+    color: #EA1C2C;
+}
+
+#mainNavbar .navbar-brand {
+    color: #EA1C2C;
+    font-size: 1.5rem;
+}

@@ -1,0 +1,38 @@
+<%- include ('../partials/header') %>
+
+<div class="container">
+    <div class="row">
+            <h1 style="text-align: center;">Create a New Place</h1>
+            <div style="width: 30%; margin: 30px auto;">
+                <form action="/places" method="POST">
+                    <div class="form-group">
+                         <input class="form-control" type="text" name="name" placeholder="name">
+                    </div>
+                    <div class="form-group">
+                         <input class="form-control" type="text" name="image" placeholder="image url">
+                    </div>
+                    <div class="form-group">
+                         <input class="form-control" type="text" name="description" placeholder="Few words about this place">
+                    </div>
+                    <div class="form-group">
+    <input type="checkbox" class="form-check-input" id="Check1">
+    <label for="Check1">Visited</label>
+  </div>
+  <div class="form-group">
+    <input type="checkbox" class="form-check-input" id="Check2">
+    <label for="Check2">Bucket-List</label>
+  </div> 
+   <div class="form-group">
+                         <input class="form-control" type="text" name="date" placeholder="When did you travel here?">
+                    </div>
+
+
+                    <div class="form-group">
+                          <button class="btn btn-lg btn-primary btn-block">Add Place</button>
+                    </div>
+                </form>
+            <a href="/places">Go Back</a>
+        </div>
+    </div>
+</div>
+<%- include ('../partials/footer') %>
